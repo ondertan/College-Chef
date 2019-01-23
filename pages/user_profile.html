@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CollegeChef</title>
+        <link rel="icon" type="image/png" href="/img/icon.png">
+        <!--JS Library-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!--CSS Framework-->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <!--Navbar-->
+        <div id="navbar_holder"></div>
+        <!--Page Content-->
+        <div class="content">
+            <div class="w3-row-padding w3-row">
+                <!-- user profile -->
+                <div class="left_col w3-quarter">
+                    <div class="section_card w3-card-2 w3-round w3-white">
+                        <section class="w3-container">
+                            <h4 class="w3-center">My Profile</h4>
+                            <div class="w3-center"><img id="profilePhoto" src="/img/profile_picture.jpg" class="w3-circle photo-style" alt="Avatar">
+                            </div>
+                            <hr>
+                            <div><i class="fa fa-user-o fa-fw w3-margin-right w3-margin-bottom"></i><b>User Name</b>
+                            </div>
+                            <div class="padding-left1 w3-margin-bottom" id="userName"></div>
+                            <div><i class="fa fa-envelope-o fa-fw w3-margin-right w3-margin-bottom"></i><b>Email</b>
+                            </div>
+                            <div class="padding-left1 w3-margin-bottom" id="email"></div>
+                            <div><i class="fa fa-id-card-o fa-fw w3-margin-right w3-margin-bottom"></i><b>Description</b>
+                            </div>
+                            <div id="description" class="w3-border w3-padding-small"></div>
+                            <hr>
+                            <div class="w3-left w3-hover-text-blue"><a href="javascript: show('reset-pwd'); $('#resetPwd-content').find('input').val('');">Reset Password</a>
+                            </div>
+                            <div class="w3-right w3-hover-text-blue"><a href="javascript: show('edit-profile'); getUserInfo(getUserID());">Edit Profile</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!-- rest password form -->
+                <section id="reset-pwd" class="w3-modal">
+                    <div class="form_dialog w3-modal-content w3-card-8 w3-animate-zoom">
+                        <div class="w3-center">
+                            <br>
+                            <span onclick="hide('reset-pwd')" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
+                            <h2 class="form_title">Rest Password</h2>
+                        </div>
+                        <!-- add action, pass records to server  -->
+                        <form id="resetPwd-content" class="w3-container" action="javascript:savePwd();">
+                            <div class="w3-section">
+                                <label><b>Old Password*</b>
+                                </label>
+                                <input id="oldPwd" class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Old Password" required>
+                                <p id="invalidOldPwd" class="w3-text-red"></p>
+                                <div class="pwd-check"></div>
+                            </div>
+                        </form>
+                        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                            <button onclick="hide('reset-pwd')" type="button" class="w3-btn w3-red">Cancel</button>
+                            <button form="resetPwd-content" class="w3-btn w3-right w3-green">Save</button>
+                        </div>
+                    </div>
+                </section>
+                <!-- edit profile form -->
+                <section id="edit-profile" class="w3-modal">
+                    <div class="form_dialog w3-modal-content w3-card-8 w3-animate-zoom">
+                        <div class="w3-center">
+                            <br>
+                            <span onclick="hide('edit-profile')" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
+                            <h2 class="form_title">Edit Profile</h2>
+                        </div>
+                        <!-- add action, pass records to server  -->
+                        <form id="editProfile-content" class="w3-container" action="javascript:saveProfile();">
+                            <div class="w3-section">
+                                <div class="w3-container w3-center">
+                                    <p class="w3-center"><img id="editUserForm-photo" src="/img/profile_picture.jpg" class="w3-circle photo-style" alt="profile image">
+                                    </p>
+                                    <input type='file' id="photo-input" accept=".jpeg,.jpg,.png" onchange="uploadPhoto(this, 'editUserForm-photo', 'profilePhoto')"/>
+                                </div>
+                                <label><b>Email</b>
+                                </label>
+                                <input id="email-input" class="w3-input w3-border" type="text" placeholder="Enter Email" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" >
+                                <p class="w3-text-grey w3-margin-bottom">You will occasionally receive account related emails if this field is not empty. We promise not to share your email with anyone.</p>
+                                <label><b>Description</b>
+                                </label>
+                                <textarea id="description-input" class="ar w3-input w3-border w3-margin-bottom" rows="5" placeholder="Enter your description."></textarea>
+                            </div>
+                        </form>
+                        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                            <button onclick="hide('edit-profile')" type="button" class="w3-btn w3-red">Cancel</button>
+                            <button form="editProfile-content" class="w3-btn w3-right w3-green">Save</button>
+                        </div>
+                    </div>
+                </section>
+                <!-- Right Part -->
+                <div class="right_col">
+                    <div class="section_card">
+                        <!-- control tabs -->
+                        <div class="w3-row">
+                            <a href="javascript:void(0)" onclick="openTab(event, 'notification-section');">
+                                <div id="notification-tab" class="tab-set w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Actions History</div>
+                            </a>
+                            <a href="javascript:void(0)" onclick="openTab(event, 'user-section'); show('addUser');">
+                                <div id="users-tab" class="tab-set w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">All Users</div>
+                            </a>
+                            <a href="javascript:void(0)" onclick="openTab(event, 'feedback-section');">
+                                <div id="feedback-tab" class="tab-set w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Website Feedback</div>
+                            </a>
+                        </div>
+                        <!-- Email Notifications -->
+                        <div id="notification-section" class="w3-container set-tab">
+                            <div class="w3-container w3-border-red w3-white w3-border w3-round-xlarge w3-margin-bottom w3-margin-top" onChange='filterNotification()'>
+                                <div id="fileTypeSelector" class="w3-left w3-margin">
+                                    <div><b>Recipe Types: </b></div><br>
+                                    <div><input id="all" type="radio" value="all" checked="checked" name="fileType"> All</div>
+                                    <div><input id="uploaded" type="radio" value="uploaded" name="fileType"> Uploaded</div>
+                                    <div><input id="favorite" type="radio" value="favorite" name="fileType"> Favorite</div>
+                                </div>
+                                <div id="actionSelector" class="w3-left w3-margin">
+                                    <b>Action Types: </b><br>
+                                    <div id="updated"><input class='actionTypes' type="checkbox" checked="checked" value="updated"> Updated</div>
+                                    <div id="deleted"><input class='actionTypes' type="checkbox" checked="checked" value="deleted"> Deleted</div>
+                                    <div id="commented"><input class='actionTypes' type="checkbox" checked="checked" value="commented"> Commented</div>
+                                    <div id="favorited"><input class='actionTypes' type="checkbox" checked="checked" value="favorited"> Favorited</div>
+                                    <div id="rated" ><input class='actionTypes' type="checkbox" checked="checked" value="rated"> Rated</div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <!-- all messages, there are four default types: rate, comment, favorite edit and uploaded edit -->
+                            <div class="msg-card">
+                            </div>
+                            <h4 id="noNoti" class="w3-margin w3-center">No actions found.</h4>
+                        </div>
+                        <!-- All Users -->
+                        <section id="user-section" class="w3-container set-tab">
+                            <h3 id="addUser" class="w3-margin w3-center w3-hover-text-blue"><a href="javascript: openCreateUserForm();">Add User</a>
+                            </h3>
+                            <div class="user-card"></div>
+                            <h4 id="noUser" class="w3-margin w3-center">No users found.</h4>
+                        </section>
+                        <!-- User Feedback -->
+                        <div id="feedback-section" class="w3-container set-tab">
+                            <div class="feedback-card">
+                            </div>
+                            <h4 id="no_feedback" class="w3-margin w3-center">No feedback found.</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--footer-->
+        <div class="w3-row" id="footer_holder">
+        </div>
+        <!--Custom JS and CSS-->
+        <script src="/pages/user_profile.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="/pages/user_profile.css" media="screen" />
+        <!--Project Common Custom JS and CSS-->
+        <link rel="stylesheet" type="text/css" href="/pages/project_common.css" media="screen" />
+        <script src="/pages/project_common.js" type="text/javascript"></script>
+    </body>
+
+</html>

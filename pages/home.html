@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CollegeChef</title>
+        <link rel="icon" type="image/png" href="/img/icon.png">
+        <!--JS Library-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!--CSS Framework-->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--Project Common Custom JS and CSS-->
+        <link rel="stylesheet" type="text/css" href="project_common.css" media="screen" />
+        <script src="project_common.js" type="text/javascript"></script>
+        <!--Custom JS and CSS-->
+        <script src="home.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="home.css" media="screen" />
+    </head>
+    <body>
+        <!--Navbar-->
+        <div id="navbar_holder"></div>
+
+        <!--Page Content-->
+        <div class="content">
+            <div class="section_card w3-row-padding w3-row">
+                <!--search by ingredient section-->
+                <div class="left_col w3-quarter">
+                    <div class="home_card home_card_ingredient w3-card-4 w3-padding w3-white">
+                        <p class="ingredient_search_hint">Search recipes by ingredients you have:</p>
+                        <div class="ingredient_search_wrapper">
+                            <input class="ingredient_search" type="text" placeholder="Filter ingredients..." id="ingredient_search_input" onkeyup="filterIngredients()">
+                        </div>
+                        <div class="ingredient_buttons_wrapper">
+                        </div>
+                        <div class="ingredient_search_rule_wrapper">
+                            <b>Select search rule:</b><br>
+                            <div class="ingredient_search_type_wrapper">
+                                <div><input type="radio" name="ingredient_search_type" value="powerset" checked>
+                                    <span id="type_word_powerset" class="ingredient_search_type_word"> Powerset</span></div>
+                                <div><input type="radio" name="ingredient_search_type" value="equal">
+                                    <span id="type_word_equal" class="ingredient_search_type_word"> Equal</span></div>
+                                <br>
+                                <div><input type="radio" name="ingredient_search_type" value="include">
+                                    <span id="type_word_include" class="ingredient_search_type_word"> Include</span></div>
+                                <div><input type="radio" name="ingredient_search_type" value="exclude">
+                                    <span id="type_word_exclude" class="ingredient_search_type_word"> Exclude</span></div>
+                            </div>
+                            <small><i class="fa fa-info-circle"></i> Search for recipes that <b><span id="search_hint"></span></b> ingredients selected.</small>
+                        </div>
+                        <div class="ingredient_search_button_wrapper">
+                            <button id="ingredient_search_button" type="button" onclick="searchByIngredient()" disabled><i class="fa fa-search"></i>  Search</button>
+                        </div>
+                    </div>
+                </div>
+                <!--dashboard-->
+                <div class="right_col w3-threequarter">
+                    <div class="home_card home_card_recipe w3-card-4 w3-padding w3-white">
+                        <div class="recipe_list search_result_list w3-accordion">
+                            <button class="recipe_list_header" onclick="toggleRecipeListContent('result_recipes')"><i class="fa fa-search"></i>  Search Result</button>
+                            <span class="search_result_list_close" onclick="closeSearchResultList()"><i class="fa fa-times"></i></span>
+                            <div id="result_recipes" class="recipe_list_content w3-accordion-content">
+                            </div>
+                        </div>
+                        <div class="recipe_list user_only_recipe_list w3-accordion">
+                            <button class="recipe_list_header" onclick="toggleRecipeListContent('favorite_recipes')"><i class="fa fa-heart"></i>  My Favorite Recipes</button>
+                            <div id="favorite_recipes" class="recipe_list_content w3-accordion-content">
+                            </div>
+                        </div>
+                        <div class="recipe_list user_only_recipe_list w3-accordion">
+                            <button class="recipe_list_header" onclick="toggleRecipeListContent('uploaded_recipes')"><i class="fa fa-cloud-upload"></i>  My Uploaded Recipes</button>
+                            <div id="uploaded_recipes" class="recipe_list_content w3-accordion-content">
+                            </div>
+                        </div>
+                        <div class="recipe_list w3-accordion">
+                            <button class="recipe_list_header" onclick="toggleRecipeListContent('remarkable_recipes')"><i class="fa fa-star-o"></i>  Remarkable Recipes</button>
+                            <div  id="remarkable_recipes" class="recipe_list_content w3-accordion-content">
+                            </div>
+                        </div>
+                        <div class="recipe_list w3-accordion">
+                            <button class="recipe_list_header" onclick="toggleRecipeListContent('hot_recipes')"><i class="fa fa-comments-o"></i>  Hot Recipes</button>
+                            <div id="hot_recipes" class="recipe_list_content w3-accordion-content">
+                            </div>
+                        </div>
+                        <div class="recipe_list w3-accordion">
+                            <button class="recipe_list_header" onclick="toggleRecipeListContent('new_recipes')"><i class="fa fa-certificate"></i>  New Recipes</button>
+                            <div id="new_recipes" class="recipe_list_content w3-accordion-content">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--footer-->
+            <div class="w3-row" id="footer_holder">
+            </div>
+        </div>
+    </body>
+</html>

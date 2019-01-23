@@ -1,0 +1,83 @@
+{
+  "name": "team02-collegechef",
+  "version": "1.0.0",
+  "description": "project for CSC309 winter 2017",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.0",
+    "browser-sync": "^2.18.8",
+    "contributor": "^0.1.25",
+    "ejs": "^2.5.6",
+    "express": "^4.15.0",
+    "express-bearer-token": "^2.1.0",
+    "jwt-simple": "^0.5.1",
+    "mongod": "^2.0.0",
+    "mongodb": "^2.2.25",
+    "mongoose": "^4.8.5",
+    "mongoose-auto-increment": "^5.0.1",
+    "node.js": "0.0.0",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "sh test-script.sh",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CinnyCao/Team02-CollegeChef.git"
+  },
+  "author": "huimin <cinny.cao@mail.utoronto.ca> (cinny)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CinnyCao/Team02-CollegeChef/issues"
+  },
+  "homepage": "https://github.com/CinnyCao/Team02-CollegeChef#readme",
+  "contributors": [
+    {
+      "name": "Xiaohan(Becky) Zhou",
+      "email": null,
+      "url": "https://github.com/zhoubecky",
+      "contributions": 43,
+      "additions": "na",
+      "deletions": "na",
+      "hireable": null
+    },
+    {
+      "name": "Tanay Onder",
+      "email": null,
+      "url": "https://github.com/ondertan",
+      "contributions": 28,
+      "additions": "na",
+      "deletions": "na",
+      "hireable": null
+    },
+    {
+      "name": null,
+      "email": null,
+      "url": "https://github.com/ahchinaei",
+      "contributions": 2,
+      "additions": "na",
+      "deletions": "na",
+      "hireable": null
+    },
+    {
+      "name": null,
+      "email": null,
+      "url": "https://github.com/MorganCarroll",
+      "contributions": 29,
+      "additions": "na",
+      "deletions": "na",
+      "hireable": null
+    },
+    {
+      "name": "Huimin(Cinny) Cao",
+      "email": null,
+      "url": "https://github.com/CinnyCao",
+      "contributions": 63,
+      "additions": "na",
+      "deletions": "na",
+      "hireable": null
+    }
+  ]
+}

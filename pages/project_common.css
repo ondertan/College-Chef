@@ -1,0 +1,251 @@
+/* Website background styles */
+body {
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9) 40%, #fff), url(/img/food.jpeg) repeat 0 0;
+    background: -webkit-linear-gradient(270deg, rgba(255,255,255,0.9) 40%, #fff), url(/img/food.jpeg) repeat 0 0;
+}
+@media screen and (max-width: 270px), (max-height: 370px) {
+
+    /* Screen size too small, hide everything */
+    body {
+        display: none;
+    }
+    html {
+        background-image: url(/img/closedbackground.jpg);
+    }
+}
+
+/* Layout styles */
+.content {
+    height: 100%;
+    overflow-y: auto;
+}
+.section_card {
+    padding: 12px 16px;
+    overflow-y: auto;
+}
+
+/* Ingredient Button */
+.ingredient_button {
+    margin: 5px 5px;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    width: 85px;
+    height: 68px;
+}
+.ingredient_button:hover {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.ingredient_button img {
+    width: 48px;
+    height: 48px;
+}
+.ingredient_button p {
+    width: 100%;
+    margin: 0;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.selected_ingredient_button {
+    background: lightgray;
+    background: -webkit-radial-gradient(lightgray, grey);
+    background: radial-gradient(lightgray, grey);
+}
+.ingredientList{
+    height: 40px;
+}
+
+/* Recipe Card */
+.recipe_card, .recipe_card_display {
+    display: block;
+    cursor: pointer;
+    margin: 7px;
+    position: relative;
+}
+.recipe_card {
+    float: left;
+    width: 200px;
+    height: 250px;
+}
+.recipe_card_display {
+    padding-bottom: 20px;
+}
+.recipe_card .recipe_card_title {
+    margin: 12px 0;
+}
+.recipe_card_display .recipe_card_title {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 12px 0;
+}
+.recipe_card .recipe_card_des {
+    margin: 0;
+    font-size: 12px;
+    overflow: hidden;
+    word-break: break-all;
+    width: 100%;
+}
+.recipe_card_display .recipe_card_des {
+    margin: 0;
+    font-size: 15px;
+    width: 100%;
+}
+.recipe_card img {
+    width: 100%;
+    max-height: 130px;
+}
+.recipe_card_display img {
+    width: 100%;
+    max-height: 450px;
+}
+.recipe_card_img_wrapper {
+    position: relative;
+}
+.recipe_card_tools_wrapper {
+    position: absolute;
+}
+.recipe_card_tools_wrapper_top_right {
+    top: 0;
+    right: 0;
+}
+.recipe_card_tools {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+.recipe_card .recipe_card_tools {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 4px;
+    margin-right: 4px;
+}
+.recipe_card_display .recipe_card_tools {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    line-height: 48px;
+    margin-top: 8px;
+    margin-right: 8px;
+}
+.recipe_card_category_serving p {
+    display: inline-block;
+    margin-top: 0;
+    width: 50%;
+}
+@media screen and (max-width: 600px) {
+
+    .recipe_card_category_serving p {
+        display: block;
+        margin-top: 0;
+        width: 100%;
+    }
+}
+
+/* Favorite Heart */
+.favoritedHeart {
+    color: red;
+}
+.favorite_tool:hover {
+    background-color: #9e9e9e;
+}
+
+/* Comment Count */
+.comment_count {
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    padding: 6px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.comment_count img {
+    width: 30px;
+}
+.comment_count p {
+    display: inline-block;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Uploader Info */
+.uploader_info, .category_info {
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    padding: 6px;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+.uploader_info p, .category_info p {
+    display: inline-block;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Rating Stars */
+.your_rate {
+    border-bottom: 1px solid #ddd;
+}
+#your_rate_msg {
+    margin-bottom: 0;
+}
+.rating_wrapper {
+    text-align: center;
+}
+.rating {
+    border: none;
+    display: inline-block;
+}
+.rating_display {
+    border: none;
+    padding: 0;
+    bottom: 0;
+    right: 20px;
+}
+.recipe_card_display .rating_display {
+    font-size: 18px;
+}
+.rating > input {
+    display: none;
+}
+.rating > label:before, .rating_display_star_gold:before, .rating_display_star_grey:before, .rating_display_star_half:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+.rating_display_star_half:before {
+    background: linear-gradient(to right, #FFD700 50%,#ddd 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    float: right;
+}
+.rating > label, .rating_display_star_grey {
+    color: #ddd;
+    float: right;
+}
+.rating > label {
+    cursor: pointer;
+}
+.rating_display_star_gold, .rating_display_star_grey, rating_display_star_half {
+    text-shadow: 2px 2px black;
+}
+.rating_display_star_gold {
+    color: #FFD700;
+    float: right;
+}
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label /* hover previous stars in list */
+{
+    color: #FFD700;
+}
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }

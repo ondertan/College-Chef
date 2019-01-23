@@ -1,0 +1,87 @@
+.recipe_browser_content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+body,h1,h2,h3,h4,h5 {
+    font-family: "Raleway", sans-serif;
+}
+
+/*site name style*/
+.site_name {
+    margin-left: calc(50% - 112px);
+}
+@media screen and (max-width: 600px) {
+
+    .site_name {
+        margin-left: calc(50% - 90px);
+    }
+}
+
+/*alphabet search*/
+.alphabet_wrapper {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+.abc {
+    margin: 4px 5px;
+    border-radius: 5px;
+}
+
+/*search bar*/
+.search_input {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    margin-bottom: 12px;
+}
+.search_wrapper {
+    position: relative;
+    font-size: 18px;
+    padding-top: 20px;
+}
+.search_wrapper label {
+    position: absolute;
+    left: 17px;
+    top: 32px
+}
+.search_options_wrapper {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.search_options_wrapper div {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 20px;
+}
+#search_by_text {
+    font-weight: bold;
+    margin-right: 5px;
+}
+@media screen and (max-width: 450px) {
+    #search_by_text {
+        display: block;
+    }
+}
+.search_option {
+    cursor: pointer;
+}
+
+/*recipe list*/
+.recipe_cards_wrapper {
+    padding: 4px 10px;
+    border: 2px solid #CCCCCC;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 70px;
+    flex-grow: 1;
+}
+@media screen and (max-width: 600px), (max-height: 500px) {
+
+    .alphabet {
+        display: none;
+    }
+}

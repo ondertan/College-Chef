@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CollegeChef</title>
+        <link rel="icon" type="image/png" href="/img/icon.png">
+        <!--JS Library-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!--CSS Framework-->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <!--Navbar-->
+        <div id="navbar_holder"></div>
+
+        <div class="content">
+            <div class="section_card">
+                <div class="recipe_browser_content w3-row-padding w3-row">
+                    <!-- Browse recipes by first letter -->
+                    <div class="alphabet_wrapper">
+                        <button class="abc w3-btn w3-padding-small" id="1" value="a" onclick="letter(this)">A</button>
+                        <button class="abc w3-btn w3-padding-small" id="2" value="b" onclick="letter(this)">B</button>
+                        <button class="abc w3-btn w3-padding-small" id="3" value="c" onclick="letter(this)">C</button>
+                        <button class="abc w3-btn w3-padding-small" id="4" value="d" onclick="letter(this)">D</button>
+                        <button class="abc w3-btn w3-padding-small" id="5" value="e" onclick="letter(this)">E</button>
+                        <button class="abc w3-btn w3-padding-small" id="6" value="f" onclick="letter(this)">F</button>
+                        <button class="abc w3-btn w3-padding-small" id="7" value="g" onclick="letter(this)">G</button>
+                        <button class="abc w3-btn w3-padding-small" id="8" value="h" onclick="letter(this)">H</button>
+                        <button class="abc w3-btn w3-padding-small" id="9" value="i" onclick="letter(this)">I</button>
+                        <button class="abc w3-btn w3-padding-small" id="10" value="j" onclick="letter(this)">J</button>
+                        <button class="abc w3-btn w3-padding-small" id="11" value="k" onclick="letter(this)">K</button>
+                        <button class="abc w3-btn w3-padding-small" id="12" value="l" onclick="letter(this)">L</button>
+                        <button class="abc w3-btn w3-padding-small" id="13" value="m" onclick="letter(this)">M</button>
+                        <button class="abc w3-btn w3-padding-small" id="14" value="n" onclick="letter(this)">N</button>
+                        <button class="abc w3-btn w3-padding-small" id="15" value="o" onclick="letter(this)">O</button>
+                        <button class="abc w3-btn w3-padding-small" id="16" value="p" onclick="letter(this)">P</button>
+                        <button class="abc w3-btn w3-padding-small" id="17" value="q" onclick="letter(this)">Q</button>
+                        <button class="abc w3-btn w3-padding-small" id="18" value="r" onclick="letter(this)">R</button>
+                        <button class="abc w3-btn w3-padding-small" id="19" value="s" onclick="letter(this)">S</button>
+                        <button class="abc w3-btn w3-padding-small" id="20" value="t" onclick="letter(this)">T</button>
+                        <button class="abc w3-btn w3-padding-small" id="21" value="u" onclick="letter(this)">U</button>
+                        <button class="abc w3-btn w3-padding-small" id="22" value="v" onclick="letter(this)">V</button>
+                        <button class="abc w3-btn w3-padding-small" id="23" value="w" onclick="letter(this)">W</button>
+                        <button class="abc w3-btn w3-padding-small" id="24" value="x" onclick="letter(this)">X</button>
+                        <button class="abc w3-btn w3-padding-small" id="25" value="y" onclick="letter(this)">Y</button>
+                        <button class="abc w3-btn w3-padding-small" id="26" value="z" onclick="letter(this)">Z</button>
+                    </div>
+                    <!-- Recipe Search -->
+                    <div class="search_wrapper">
+                        <label for="recipe_browser_input"><i class="fa fa-search"></i></label>
+                        <input type="text" class="search_input w3-card-2" id="recipe_browser_input" 
+                            onkeyup="filterRecipes()" placeholder="Search for recipes..">
+                    </div>
+                    <div class="search_options_wrapper">
+                        <span id="search_by_text">Search by:</span>
+                        <div><input id="by_recipe_option" type="radio" value="by_recipe" name="recipe_search_option" checked>
+                            <span id="recipe_text">Recipe</span>
+                        </div>
+                        <div><input id="by_uploader_option" type="radio" value="by_uploader" name="recipe_search_option">
+                            <span id="uploader_text">Uploader</span>
+                        </div>
+                        <div><input id="by_category_option" type="radio" value="by_category" name="recipe_search_option">
+                            <span id="category_text">Category</span>
+                        </div>
+                    </div>
+                    <div class="recipe_cards_wrapper w3-white w3-card-2" id="main_wrapper">
+                    </div>
+                </div>
+            </div>
+            <!--footer-->
+            <div class="w3-row" id="footer_holder">
+            </div>
+        </div>
+
+
+        <!--Project Common Custom JS and CSS-->
+        <link rel="stylesheet" type="text/css" href="project_common.css" media="screen" />
+        <script src="project_common.js" type="text/javascript"></script>
+        <!--Custom JS and CSS-->
+        <script src="recipe_browser.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="recipe_browser.css" media="screen" />
+    </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Navigation Bar</title>
+</head>
+<!--Navigation Bar-->
+<nav class="w3-top">
+    <div class="site_name w3-wide"><img src="/img/icon.png" alt="Icon"> CollegeChef</div>
+    <ul id="navbar" class="w3-navbar w3-black w3-card-4 w3-left-align">
+        <li class="w3-opennav"><a class="w3-padding-large" href="javascript: showLinks();"><i class="fa fa-bars"></i></a></li>
+        <li class="menu_item_left"><a href="/index.html" class="w3-padding-large" title="Home"><i class="fa fa-home"></i><p class="menu_item_name w3-hide-medium">Home</p></a></li>
+        <li class="menu_item_left"><a href="/pages/recipe_browser.html" class="w3-padding-large" title="All Recipes"><i class="fa fa-cutlery"></i><p class="menu_item_name w3-hide-medium">Recipe Browser</p></a></li>
+        <li class="menu_item_left user_only"><a href="/pages/user_profile.html" class="w3-padding-large" title="User Profile"><i class="fa fa-user-o"></i><p class="menu_item_name w3-hide-medium">My Profile</p></a></li>
+        <li class="menu_add_recipe w3-right user_only"><a href="javascript: addRecipe();" class="w3-padding-large" title="Add Recipe"><i class="fa fa-plus-square w3-hide-medium"></i><p class="menu_item_name"> Add Recipe</p></a></li>
+        <li class="menu_item_left user_only"><a href="javascript: logOut();" class="w3-padding-large" title="Sign Out"><i class="fa fa-sign-out"></i><p class="menu_item_name w3-hide-medium">Sign Out</p></a></li>
+        <li class="menu_item_right w3-right"><a href="javascript: getLoginForm();" class="w3-padding-large" title="Login"><p class="menu_item_name">Login</p></a></li>
+        <li class="menu_item_right w3-right"><a href="javascript: openCreateUserForm();" class="w3-padding-large" title="Sign Up"><p class="menu_item_name">Sign Up</p></a></li>
+    </ul>
+</nav>
+
+<!--Login Form-->
+<div id="login-form" class="w3-modal">
+    <div class="form_dialog w3-modal-content w3-card-8 w3-animate-zoom">
+
+        <span onclick="hide('login-form')" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
+        <div class="w3-center w3-padding-32"><img alt="logo" class="logo-img w3-center" src="/img/logo.png"></div>
+
+        <!-- add action, pass records to server  -->
+        <form id="login-content" class="w3-container" action="javascript:login();">
+            <p id="loginFailed" class="w3-text-red"></p>
+            <div class="w3-section">
+                <label><b>Username</b></label>
+                <input id="loginUserName" class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" required>
+                <label><b>Password</b></label>
+                <!-- password pattern can be changed later, pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" -->
+                <input id="loginPwd" class="w3-input w3-border" type="password" placeholder="Enter Password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <input id="login_remember_me" class="w3-check w3-margin-top" type="checkbox"> Remember me
+            </div>
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="hide('login-form')" type="button" class="w3-btn w3-red">Cancel</button>
+            <button type="submit" form="login-content" class="w3-btn w3-right w3-green">Login</button>
+        </div>
+
+    </div>
+</div>
+
+<!--Sign Up Form-->
+<div id="register-form" class="w3-modal">
+    <div class="form_dialog w3-modal-content w3-card-8 w3-animate-zoom">
+
+        <span onclick="hide('register-form')" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
+        <div class="w3-center w3-padding-32"><img alt="logo" class="logo-img w3-center" src="/img/logo.png"></div>
+        
+        <!-- add action, pass records to server  -->
+        <form id="signup-content" class="w3-container" action="javascript:signUp();">
+            <div class="w3-section">
+                <label><b>UserName*</b></label>
+                <input id="signUpUserName" class="w3-input w3-border" type="text" placeholder="Enter Username" required>
+                <p id="usernameExist" class="w3-text-red"></p>
+                <p class="w3-text-grey w3-margin-bottom">You will use your username to login.</p>
+                <div class="pwd-check"></div>
+            </div>
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="hide('register-form')" type="button" class="w3-btn w3-red">Cancel</button>
+            <button id="createBtnText" form="signup-content" class="w3-btn w3-right w3-green">Sign Up</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- add recipe form -->
+<section id="add-edit-recipe" class="w3-modal">
+    <div class="form_dialog w3-modal-content w3-card-8 w3-animate-zoom">
+        <div class="w3-center">
+            <br>
+            <span onclick="hide('add-edit-recipe')" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
+            <h2 id="recipe_form_title" class="form_title">Edit Recipe</h2>
+        </div>
+        <!-- add action, pass records to server  -->
+        <form id="saveRecipe-content" data-recipeId="-1" class="w3-container" action="javascript:updateOrAddRecipe();">
+            <div class="w3-section">
+                <label><b>Recipe Photo*</b>
+                </label><br>
+                <img id="recipeCover" src="" class="recipePhotoStyle w3-margin-right" alt="recipe image">
+                <input type='file' id="inputRecipeImg" class="w3-margin-top w3-margin-bottom" accept=".jpeg,.jpg,.png" onchange="uploadPhoto(this, 'recipeCover', 'recipePhoto')"/><br>
+                <label><b>Recipe Name*</b>
+                </label>
+                <input id="recipe_name" class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter name of recipe" name="recipename" pattern="[A-Za-z\s]{2,20}" title="Recipe name should be more than 2 characters and less than 20 characters." required>
+                <label><b>Category*</b>
+                </label>
+                <select id="category" class="w3-input w3-border w3-margin-bottom" name="category" required>
+                    <option value="" disabled selected>Select a food category</option>
+                </select>
+                </label>
+                <label><b>Description*</b>
+                </label>
+                <textarea id="main_description" class="w3-input w3-border w3-margin-bottom" rows="2" name="description" placeholder="Enter your description" required></textarea>
+                <label><b>Ingredient List* </b><i class="w3-hover-text-blue w3-xlarge fa fa-plus-circle" onClick="addIngredient();"></i>
+                </label>
+                <div id="ingredient_list" class="w3-container w3-margin-bottom w3-margin-top">
+                <div class="eachIngredient"></div>
+                </div>
+                <label><b>Number of Servings*</b>
+                </label>
+                <input id="servings" class="w3-input w3-border w3-margin-bottom" type="number" min="0" placeholder="Enter name number of servings" name="servings" required>
+                <label><b>Cooking Instructions*</b>
+                </label>
+                <textarea id="instructions" class="w3-input w3-border w3-margin-bottom" rows="5" name="instructions" placeholder="Enter your cooking instructions" required></textarea>
+                <label><b>Additional Tips or Suggestions (optional)</b>
+                </label>
+                <textarea id="tips" class="w3-input w3-border w3-margin-bottom" rows="2" name="tips" placeholder="Enter any additional suggestions you have"></textarea>
+            </div>
+        </form>
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="hide('add-edit-recipe')" type="button" class="w3-btn w3-red">Cancel</button>
+            <button id="recipe_add_edit_submit" form="saveRecipe-content" class="w3-btn w3-right w3-green">Submit</button>
+        </div>
+    </div>
+</section>
+
+<link rel="stylesheet" type="text/css" href="/components/navbar.css" media="screen" />
+</html>

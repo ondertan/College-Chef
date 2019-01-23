@@ -1,0 +1,35 @@
+body, h1, h2, h3, h4, h5 {
+    font-family: "Raleway", sans-serif;
+}
+.header {
+    letter-spacing: 10px;
+    border-radius: 5px;
+}
+.faleft1 {
+    padding-right: 40px;
+}
+.faleft2 {
+    padding-right: 10px;
+}
+.faright1 {
+    padding-left: 40px;
+}
+.faright2 {
+    padding-left: 10px;
+}
+.about {
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-left: 35px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    font-size: 20px;
+}
+#about_img {
+    padding-top: 35px;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-bottom: 10px;
+    float: left;
+    max-width:100%;
+}

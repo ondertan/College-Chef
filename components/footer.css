@@ -1,0 +1,88 @@
+body {
+    padding-bottom: 50px;
+}
+
+footer {
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    display: inline-block;
+}
+
+footer a {
+    display: inline-block;
+    float: right;
+    margin: 0 16px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    background: radial-gradient(#CCCCCC 10%, white 90%);
+    background: -webkit-radial-gradient(#CCCCCC 10%, white 90%);
+}
+
+.form_dialog {
+    max-width: 800px;
+}
+
+textarea {
+    resize: none;
+}
+
+@media screen and (max-width: 600px) {
+
+    body {
+        padding-bottom: 60px;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer p {
+        display: block;
+    }
+
+    footer a {
+        float: none;
+    }
+}
+
+/* User Type Controller for Demo - Removed later */
+#user_options {
+    position: fixed;
+    bottom: 0px;
+    left: 40vw;
+    padding:10px;
+    background-color: rgba(255, 255, 190, .6);
+    text-align: center;
+    border-radius: 15px;
+}
+
+#user_options p {
+    display: block;
+    font-size: 12px;;
+}
+
+#user_options input {
+    margin-right: 2px;
+}
+
+.user_text {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+
+    #user_options {
+        left: 0px;
+        background-color: rgb(255, 255, 190);
+    }
+}

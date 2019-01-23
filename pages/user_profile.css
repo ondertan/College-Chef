@@ -1,0 +1,57 @@
+/*user profile*/
+#description {
+    word-wrap: break-word;
+    width: 100%;
+    height: 200px;
+}
+.padding-left1 {
+    padding-left: 30px;
+}
+
+/*tab background set*/
+.tab-set{
+    height: 55px;
+}
+
+/*user card*/
+.userCardBackground {
+    width: 280px;
+    height: 350px;
+}
+.user-card-photo {
+    width: 200px;
+    height: 200px;
+}
+.userCardBtn{
+    width: 80px;
+}
+
+/*recipe card*/
+.card-set {
+    position: relative;
+    margin: 16px;
+}
+.card-margin {
+    margin-right: 30px;
+}
+
+/*common used*/
+.photo-style {
+    height: 106px;
+    width: 106px;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+/*notification*/
+#actionSelector div, #fileTypeSelector div{
+    display:inline-block;
+}
+
+/*feedback*/
+.feedback_entries p {
+    vertical-align: middle;
+}

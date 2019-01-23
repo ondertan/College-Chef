@@ -1,0 +1,81 @@
+body {
+    padding-top: 60px;
+}
+
+.site_name {
+    position: fixed;
+    color: white;
+    margin-left: calc(50% - 75px); /* Avoid overlapping nav buttons when being full width */
+    padding-top: 10px;
+    font-size: 18px;
+}
+
+.site_name img {
+    width: 24px;
+}
+
+.menu_item_name {
+    display: inline;
+    padding-left: 5px;
+}
+
+/*recipe form*/
+.form_title {
+    margin-bottom: 20px;
+}
+#add_ingredient {
+    margin-bottom: 15px;
+}
+.recipePhotoStyle {
+    width: 200px;
+    height: auto;
+}
+.input-set{
+    padding:8px;
+    display:block;
+    border:none;
+    border-bottom:1px solid #ccc;
+    width:40%
+}
+.timesBtn {
+    margin-top: 7px;
+}
+
+@media screen and (max-width: 600px) {
+    
+    /* override css class w3-navbar on small screen */
+
+    #navbar li {
+        float: left !important;
+    }
+}
+
+/* Login form & Sign up form*/
+
+.logo-img {
+    width: 200px;
+    height: auto;
+}
+
+.form_title {
+    font-size: 24px;
+    letter-spacing: 6px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.form_dialog {
+    max-width: 450px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .form_title {
+        font-size: 18px;
+        letter-spacing: 3px;
+    }
+
+    .form_dialog {
+        max-width: 600px;
+    }
+}

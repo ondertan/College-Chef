@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Footer</title>
+</head>
+<footer>
+    <p>Copyright <i class="fa fa-copyright"></i> CollegeChef 2017</p>
+    <a href="javascript: show('give-feedback');">Feedback</a>
+    <a href="/pages/about_us.html">About Us</a>
+
+    <div id="give-feedback" class="w3-modal">
+	    <div class="form_dialog w3-modal-content w3-card-8 w3-animate-zoom">
+	        <div class="w3-center">
+	            <br>
+	            <span onclick="hide('give-feedback')" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
+	            <h1 class="form_title">Feedback Form</h1>
+	        </div>
+	            <!-- add action, pass records to server  -->
+	        <form id="feedback-content" class="w3-container" action="javascript:sendFeedback();">
+		        <div class="w3-section">
+		        	<label><b>Name (optional)</b>
+		            </label>
+		        	<input class="w3-input w3-border w3-margin-bottom" id="fbName" type="text" placeholder="Enter your name" name="name">
+		        	<label><b>Email Address (optional)</b>
+		            </label>
+		        	<input class="w3-input w3-border w3-margin-bottom" id="fbEmail" type="text" pattern='[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' placeholder="Enter your email address if you would like a response" name="email">
+		            <label><b>Feedback*</b>
+		            </label>
+		            <textarea class="w3-input w3-border w3-margin-bottom" id="feedback" rows="5" name="feedback" placeholder="Enter your feedback" required></textarea>
+		        </div>
+	        </form>
+	        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+	            <button onclick="hide('give-feedback')" type="button" class="w3-btn w3-red">Cancel</button>
+	            <button form="feedback-content" class="w3-btn w3-right w3-green">Submit</button>
+	        </div>
+	    </div>
+	</div>
+</footer>
+
+<link rel="stylesheet" type="text/css" href="/components/footer.css" media="screen" />
+</html>
